@@ -1,0 +1,7 @@
+LISTE: code_liste, nom, position
+APPARTENIR, 0N LISTE, 11 CARTE
+CARTE: code_carte, description, position, couleur
+
+:
+LABEL: code_label, nom, couleur
+AVOIR, 0N CARTE, 0N LABEL
