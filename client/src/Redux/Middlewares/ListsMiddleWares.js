@@ -1,5 +1,5 @@
-import { AXIOS_LISTS, ACTION_DELETE_LIST, actionSetLists, filteredList } from '../Actions/ListsActions'
-import { requestLists, axiosDeleteLists } from '../Requests/Requests';
+import { AXIOS_LISTS, ACTION_DELETE_LIST, ACTION_DELETE_CARD, actionSetLists, filteredList, filteredCard, actionAxiosLists } from '../Actions/ListsActions'
+import { requestLists, axiosDeleteLists, axiosDeleteCards } from '../Requests/Requests';
 
 const ListsMiddleware = (store) => (next) => async (action) => {
     switch (action.type) {
@@ -21,10 +21,27 @@ const ListsMiddleware = (store) => (next) => async (action) => {
             // console.log(action.payload.id);
             try {
                 const responseAxiosDeleteLists = await axiosDeleteLists(action.payload.id);
-                console.log('store', store.list)
+                // console.log('store', store.list)
                 if (responseAxiosDeleteLists) {
                     store.dispatch(
                         filteredList(action.payload.id)
+                    );
+                }
+            }
+            catch (err) {
+                console.error(err);
+            }
+
+            break;
+        case ACTION_DELETE_CARD:
+            // console.log(action);
+            try {
+                const responseAxiosDeleteCards = await axiosDeleteCards(action.payload.id);
+                // console.log('store', store.card)
+                if (responseAxiosDeleteCards) {
+                    store.dispatch(
+                        filteredCard(action.payload.id, action.payload.list_id)
+                        // actionAxiosLists()
                     );
                 }
             }

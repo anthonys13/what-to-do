@@ -20,8 +20,12 @@ body {
   padding: .5em !important;
 }
 
+/* .flex-list {
+  display: flex;
+} */
+
 #root {
-  background: antiquewhite!important;
+  background: antiquewhite !important;
 }
 
 .list-section {

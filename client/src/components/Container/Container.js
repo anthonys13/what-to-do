@@ -8,12 +8,12 @@ import { actionAxiosLists } from '../../Redux/Actions/ListsActions';
 const Main = () => {
 
   const dispatch = useDispatch();
+  const lists = useSelector((state) => state.list)
 
   useEffect(() => {
     dispatch(actionAxiosLists());
-  }, []);
+  }, [lists]);
 
-  const lists = useSelector((state) => state.list)
   // console.log('lists = ', lists)
 
   return (
@@ -27,7 +27,17 @@ const Main = () => {
             />
           ))}
         </div>
+
+        <div id="modal2" className="modal">
+          <div className="modal-content">
+            <h4>CREATE CARD</h4>
+          </div>
+          <div className="modal-footer">
+            <button className="modal-close waves-effect waves-green btn-flat">Agree</button>
+          </div>
+        </div>
       </div>
+
     </main>
   )
 }

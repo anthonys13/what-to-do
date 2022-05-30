@@ -25,3 +25,14 @@ export async function axiosDeleteLists(id) {
         console.error(err);
     }
 }
+
+export async function axiosDeleteCards(id) {
+    try {
+        const response = await axiosInstance.delete(`/cards/${id}`);
+        return response.data
+
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
