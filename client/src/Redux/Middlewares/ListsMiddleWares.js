@@ -1,4 +1,4 @@
-import { AXIOS_LISTS, ACTION_DELETE_LIST, actionSetLists, actionAxiosLists } from '../Actions/ListsActions'
+import { AXIOS_LISTS, ACTION_DELETE_LIST, actionSetLists, filteredList } from '../Actions/ListsActions'
 import { requestLists, axiosDeleteLists } from '../Requests/Requests';
 
 const ListsMiddleware = (store) => (next) => async (action) => {
@@ -21,10 +21,10 @@ const ListsMiddleware = (store) => (next) => async (action) => {
             // console.log(action.payload.id);
             try {
                 const responseAxiosDeleteLists = await axiosDeleteLists(action.payload.id);
-                // console.log('responseAxiosDeleteLists', responseAxiosDeleteLists)
+                console.log('store', store.list)
                 if (responseAxiosDeleteLists) {
                     store.dispatch(
-                        actionAxiosLists()
+                        filteredList(action.payload.id)
                     );
                 }
             }
