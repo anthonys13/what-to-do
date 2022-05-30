@@ -1,12 +1,21 @@
 import React from 'react'
+import Tag from './Tag/Tag'
 
-const Card = () => {
+const Card = ({ ...card }) => {
     return (
         <div className="card #ffe0b2 orange lighten-4">
-            <div className="card-content black-text card-padding">
-                <span className="card-title">Card Title <button className="btn-flat waves-effect waves-light"><i className="material-icons">clear</i></button></span>
+            <div className='left'>
+                <button className="btn-flat waves-effect waves-light"><i className="material-icons">clear</i></button>
+                {card.tagsList.map(tag => (
+                    <Tag
+                        key={tag.id}
+                        {...tag}
+                    />
+                ))}
             </div>
-            <p>SALUT JE SUIS LE CONTENU DE LA CARD</p>
+            <div className="card-content black-text card-padding">
+                <p className='card-p'>{card.description}</p>
+            </div>
         </div>
     )
 }

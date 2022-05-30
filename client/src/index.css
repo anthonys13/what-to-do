@@ -16,21 +16,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.card-p {
+  padding: .5em !important;
+}
+
 .list-section {
   margin-right: 1em;
   margin-bottom: 1em;
   border-radius: 0.5em;
+  width: 23% !important;
 }
 
 .list-content {
-  padding: 10px!important;
-}
-
-.btn-list {
-  margin-left: 1em;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
+  padding: 10px !important;
 }
 
 .card-title {
@@ -8997,6 +8995,27 @@ input[type=range]::-ms-thumb {
     width: 600px;
     height: 600px;
   }
+
+  .list-section {
+    width: 100% !important;
+  }
+
+}
+
+@media only screen and (min-width: 601px) {
+
+  .list-section {
+    width: 47% !important;
+  }
+
+}
+
+@media only screen and (min-width: 770px) {
+
+  .list-section {
+    width: 31% !important;
+  }
+
 }
 
 .pulse {

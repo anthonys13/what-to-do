@@ -1,11 +1,16 @@
-export const AXIOS_LISTS = () => ({ type: AXIOS_LISTS });
+export const AXIOS_LISTS = 'AXIOS_LISTS'
+export const SET_LISTS = 'SET_LISTS'
+export const ACTION_DELETE_LIST = 'DELETE_LIST'
 
-/**
- * Action pour demander aux reducers de sauvegarder le tableau de recette
- * @param {Array<Object>} axiosLists tableau de recette
- * @returns {Action}
- */
+export const actionAxiosLists = () => ({ type: AXIOS_LISTS })
+export const actionDeleteLists = (id) => ({
+    type: ACTION_DELETE_LIST,
+    payload: {
+        id: id
+    }
+})
+
 export const actionSetLists = (axiosLists) => ({
-    type: AXIOS_LISTS,
+    type: SET_LISTS,
     payload: axiosLists,
 });
